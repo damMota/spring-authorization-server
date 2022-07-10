@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Spring Security Example</title>
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h2 class="form-signin-heading">Deseja realmente sair?</h2>
+		<div th:if="${param.error}" class="alert alert-danger">    
+        	Usuário ou senha inválidos!
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success"> 
+            Você saiu.
+        </div>
+		<form class="form-signin" method="POST" th:action="@{/logout}">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sim</button>
+		<a href="/">Não</a>
+		</form>
+	</div>
+</body>
+</html>
